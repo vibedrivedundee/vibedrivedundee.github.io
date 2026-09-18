@@ -130,8 +130,7 @@
   }
 
   function districtCode(cleanPc) {
-    if (cleanPc.length <= 3) return cleanPc;
-    return cleanPc.slice(0, cleanPc.length - 3);
+    return cleanPc.slice(0, 3);
   }
 
   function resolveInstructor() {
