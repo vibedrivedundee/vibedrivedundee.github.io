@@ -85,6 +85,18 @@
     color: var(--navy);
   }
   .fallback p { color: #4a4a4a; }
+  .btn-home {
+    display: inline-block;
+    margin-top: 20px;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .btn-home:hover { background: var(--navy-soft); }
   footer {
     text-align: center;
     padding: 24px;
@@ -115,6 +127,8 @@
   const email = (params.get('email') || '').trim();
   const rawPostcode = (params.get('postcode') || '').trim();
   const transmission = (params.get('transmission') || '').trim().toLowerCase();
+  const callPref = (params.get('callPref') || '').trim().toLowerCase();
+  const prefersCall = callPref.startsWith('yes');
 
   const INSTRUCTORS = {
     'automatic': { slug: 'lesson-with-aisha-campbell', display: 'Aisha Campbell — Automatic' },
@@ -141,6 +155,19 @@
   }
 
   const content = document.getElementById('content');
+
+  if (prefersCall) {
+    content.innerHTML =
+      '<h1>Thanks' + (name ? ', ' + escapeHtml(name) : '') + '!</h1>' +
+      '<p class="lede">No problem — we\'ll call you shortly to arrange a time that works for you.</p>' +
+      '<div class="fallback">' +
+      '<h2>What happens next</h2>' +
+      '<p>A member of the VIBE Drive team will call you to confirm your instructor and book a time that fits your schedule.</p>' +
+      '</div>' +
+      '<a class="btn-home" href="index.html">Back to VIBE Drive homepage</a>';
+    return;
+  }
+
   const match = resolveInstructor();
 
   if (!match) {
@@ -151,7 +178,8 @@
       '<div class="fallback">' +
       '<h2>What happens next</h2>' +
       '<p>A member of the VIBE Drive team will get in touch to confirm your instructor and find a slot that fits your schedule.</p>' +
-      '</div>';
+      '</div>' +
+      '<a class="btn-home" href="index.html">Back to VIBE Drive homepage</a>';
     return;
   }
 
@@ -204,6 +232,16 @@
       styles: { branding: { brandColor: "#0C2340" } },
       hideEventTypeDetails: false,
       layout: "month_view"
+    });
+
+    window.Cal("on", {
+      action: "bookingSuccessful",
+      callback: function () {
+        content.innerHTML =
+          '<h1>Thanks' + (name ? ', ' + escapeHtml(name) : '') + ' — you\'re booked!</h1>' +
+          '<p class="lede">Your lesson is confirmed. We\'ve sent a confirmation to your email with all the details.</p>' +
+          '<a class="btn-home" href="index.html">Back to VIBE Drive homepage</a>';
+      }
     });
   }
 })();
