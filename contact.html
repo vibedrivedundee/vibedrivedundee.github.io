@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIBE Drive — Contact &amp; Enquiries</title>
+<style>
+  :root {
+    --navy: #0C2340;
+    --navy-soft: #16345c;
+    --gold: #D9A441;
+    --paper: #FAFAF8;
+    --ink: #1C1C1C;
+    --muted: #5a5a5a;
+    --line: #E4E1D8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  header {
+    background: var(--navy);
+    color: #fff;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  header .brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  header .brand span { color: var(--gold); }
+  header a { color: inherit; text-decoration: none; }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  h1 {
+    font-size: 1.7rem;
+    margin: 0 0 8px;
+    color: var(--navy);
+  }
+  p.lede {
+    color: #4a4a4a;
+    margin: 0 0 28px;
+    max-width: 52ch;
+  }
+  .form-wrap {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 8px;
+    min-height: 420px;
+  }
+  .form-wrap iframe { display: block; border: 0; width: 100%; }
+  .alt {
+    margin-top: 18px;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .alt a { color: var(--navy); font-weight: 600; }
+  .btn-home {
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .btn-home:hover { background: var(--navy-soft); }
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.8rem;
+    color: #9a9a9a;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><a href="index.html">VIBE <span>Drive</span></a></div>
+</header>
+
+<main>
+  <h1>Contact &amp; Enquiries</h1>
+  <p class="lede">
+    Have a question about lessons, an existing booking or anything else? Send us a message
+    and we'll reply as soon as we can.
+  </p>
+
+  <div class="form-wrap">
+    <iframe
+      data-tally-src="https://tally.so/embed/RWoxaP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+      loading="lazy"
+      width="100%"
+      height="420"
+      title="VibeDrive Enquiries">
+    </iframe>
+  </div>
+
+  <p class="alt">
+    Form not loading? <a href="https://tally.so/r/RWoxaP">Open it in a new tab</a>
+    or email us at <a href="mailto:vibedrive.motorschool@gmail.com">vibedrive.motorschool@gmail.com</a>.
+  </p>
+
+  <a class="btn-home" href="index.html">Back to VIBE Drive homepage</a>
+</main>
+
+<footer>VIBE Drive — Dundee. This is a demo project.</footer>
+
+<script>
+  var d = document, w = "https://tally.so/widgets/embed.js", v = function () {
+    "undefined" != typeof Tally
+      ? Tally.loadEmbeds()
+      : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+          e.src = e.dataset.tallySrc;
+        });
+  };
+  if ("undefined" != typeof Tally) v();
+  else if (null == d.querySelector('script[src="' + w + '"]')) {
+    var s = d.createElement("script");
+    s.src = w; s.onload = v; s.onerror = v;
+    d.body.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
