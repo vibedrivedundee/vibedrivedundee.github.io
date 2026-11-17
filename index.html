@@ -132,12 +132,24 @@
     font-size: 0.98rem;
   }
   .cta a.button:hover { background: #16345c; }
-  .cta .secondary {
-    margin: 18px 0 0;
-    font-size: 0.92rem;
-    color: var(--muted);
+  .help {
+    margin-top: 56px;
+    padding: 24px 32px;
+    border-top: 1px solid var(--line);
   }
-  .cta .secondary a { color: var(--navy); font-weight: 600; }
+  .help h3 { margin: 0 0 6px; font-size: 1.05rem; color: var(--navy); }
+  .help p { margin: 0 0 16px; color: var(--muted); font-size: 0.95rem; max-width: 60ch; }
+  .help a.button-outline {
+    display: inline-block;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+  .help a.button-outline:hover { background: var(--navy); color: #fff; }
   footer a { color: inherit; }
   footer {
     text-align: center;
@@ -207,7 +219,12 @@
     <h2>Ready to get started?</h2>
     <p>Tell us a little about yourself, and we'll help you find the right instructor.</p>
     <a class="button" href="https://tally.so/r/ob8deN">Book a lesson →</a>
-    <p class="secondary">Have a question first? <a href="contact.html">Contact us</a></p>
+  </div>
+
+  <div class="help">
+    <h3>Questions or problems?</h3>
+    <p>Not sure about something, or need help with an existing booking? Send us a message and we'll reply as soon as we can.</p>
+    <a class="button-outline" href="contact.html">Contact us</a>
   </div>
 </main>
 
